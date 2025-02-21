@@ -1,0 +1,15 @@
+{
+    "name": "To-Do List",
+    "manifest_version": 3,    
+    "description": "A simple to-do list Chrome extension",
+    "version": "1.0",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+
+      }
+    },
+    "permissions": [
+      "storage"
+    ]
+  }
