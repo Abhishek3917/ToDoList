@@ -3,6 +3,26 @@ const taskInput = document.getElementById("new-task");
 const taskList = document.getElementById("task-list");
 const addTaskButton = document.getElementById("add-task");
 
+const themeToggle = document.getElementById("theme-toggle");
+
+// Load theme from storage
+chrome.storage.local.get("theme", (data) => {
+  if (data.theme === "light") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "🌙 ";
+  } else {
+    themeToggle.textContent = "☀️ ";
+  }
+});
+
+// Toggle theme
+themeToggle.addEventListener("click", () => {
+  const isLightMode = document.body.classList.toggle("dark-mode");
+  chrome.storage.local.set({ theme: isLightMode ? "light" : "dark" });
+
+  themeToggle.textContent = isLightMode ? "☀️ " : "🌙 ";
+});
+
 let tasks = [];
 
 
