@@ -7,12 +7,8 @@ const themeToggle = document.getElementById("theme-toggle");
 chrome.storage.local.get("theme", (data) => {
   if (data.theme === "light") {
     document.body.classList.add("dark-mode");
-    themeToggle.textContent = "🌙 ";
-  } else {
-    themeToggle.textContent = "☀️ ";
-  }
-});
 
+}});
 
 themeToggle.addEventListener("click", () => {
   const isLightMode = document.body.classList.toggle("dark-mode");
